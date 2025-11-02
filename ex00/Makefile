@@ -1,6 +1,6 @@
 NAME =  whatever
 
-SRCS =  main.cpp Base.cpp Methods.cpp
+SRCS =  main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

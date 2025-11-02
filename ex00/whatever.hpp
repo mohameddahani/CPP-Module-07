@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 09:17:24 by mdahani           #+#    #+#             */
-/*   Updated: 2025/11/02 09:23:59 by mdahani          ###   ########.fr       */
+/*   Updated: 2025/11/02 11:28:54 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,36 @@
 // * Includes
 #include <iostream>
 
-// * Class With Orthodox Canonical Form
-class Whatever {
-    // ! private
-    private:
+// * Functions
+template<typename T>
+void swap(T &a, T &b) {
+    T tmp = a;
+    a = b;
+    b = tmp;
+}
 
-    // ! public
-    public:
-        // * Default constructor
-        Whatever();
+template<typename T>
+T max(T &a, T &b) {
+    if (a == b){
+        return b;
+    }
+    if (a > b){
+        return a;
+    } else {
+        return b;
+    }
+}
 
-        // * Copy constructor
-        Whatever(const Whatever &other);
-
-        // * Copy assignment operator
-        Whatever &operator=(const Whatever &other);
-
-        // * Destructor
-        ~Whatever();
-
-        // * Setters & Getters
-        
-        // * Methods
-};
+template<typename T>
+T min(T &a, T &b){
+    if (a == b){
+        return b;
+    }
+    if (a < b){
+        return a;
+    } else {
+        return b;
+    }
+}
 
 #endif
