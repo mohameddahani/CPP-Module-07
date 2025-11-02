@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 11:56:25 by mdahani           #+#    #+#             */
-/*   Updated: 2025/11/02 12:00:44 by mdahani          ###   ########.fr       */
+/*   Updated: 2025/11/02 17:48:25 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,17 @@
 
 // * Functions
 template<typename T>
-void iter(T &add, const T &len, void (*ptrFunc)(const std::string &str)){
-    
+void iter(T *arr, const unsigned int &len, void (*ptrFunc)(T &value)){
+    for (unsigned int i = 0; i < len; i++){
+        ptrFunc(arr[i]);
+    }
+}
+
+template<typename T>
+void iter(const T *arr, const unsigned int &len, void (*ptrFunc)(const T &value)){
+    for (unsigned int i = 0; i < len; i++){
+        ptrFunc(arr[i]);
+    }
 }
 
 #endif
