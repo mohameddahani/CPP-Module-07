@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 11:56:12 by mdahani           #+#    #+#             */
-/*   Updated: 2025/11/02 17:53:24 by mdahani          ###   ########.fr       */
+/*   Updated: 2025/11/04 09:13:15 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 template<typename T>
 void ft_strjoin(T &value){
-    value += 64;
+    value += 64; // * @
 }
 
 template<typename T>
@@ -23,14 +23,14 @@ void ft_strjoin(const T &value){
 }
 
 int main(){
-    const unsigned int len = 10;
+    const unsigned int len = 3;
+    
     std::string arr[len];
-    const std::string arr2[len] = {"hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello "};
-
     for (unsigned int i = 0; i < len; i++){
         arr[i] = "hello ";
     }
-    
+
+    const std::string arr2[len] = {"A ", "B ", "C "};
 
     ::iter(arr, len, ft_strjoin);
     
