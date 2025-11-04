@@ -6,42 +6,40 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 11:56:12 by mdahani           #+#    #+#             */
-/*   Updated: 2025/11/02 17:53:24 by mdahani          ###   ########.fr       */
+/*   Updated: 2025/11/04 08:47:36 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
-
-template<typename T>
-void ft_strjoin(T &value){
-    value += 64;
-}
-
-template<typename T>
-void ft_strjoin(const T &value){
-    (void)value;
-}
+#include "Array.hpp"
 
 int main(){
-    const unsigned int len = 10;
-    std::string arr[len];
-    const std::string arr2[len] = {"hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello ", "hello "};
+    try {
+        Array<int> a(10);
+        a.setValueByIndex(10, 0);
+        std::cout << a.getValueByIndex(0) << std::endl;
+        // std::cout << a.getValueByIndex(100) << std::endl;
 
-    for (unsigned int i = 0; i < len; i++){
-        arr[i] = "hello ";
+
+        
+        Array<std::string> b(10);
+        b.setValueByIndex("hello", 0);
+        std::cout << b.getValueByIndex(0) << std::endl;
+        // std::cout << b.getValueByIndex(100) << std::endl;
+
+        Array<std::string> c(2);
+        c.setValueByIndex("world", 0);
+        std::cout << c.getValueByIndex(0) << std::endl;
+        // std::cout << b.getValueByIndex(100) << std::endl;
+
+        b = c;
+        
+        std::cout << b.getValueByIndex(0) << std::endl;
+        
+        std::cout << b.getAddressByIndex(0) << std::endl;
+        std::cout << c.getAddressByIndex(0) << std::endl;
+    }
+    catch(const std::exception& e){
+        std::cerr << e.what() << std::endl;
     }
     
-
-    ::iter(arr, len, ft_strjoin);
-    
-    ::iter(arr2, len, ft_strjoin);
-
-    
-    for (unsigned int i = 0; i < len; i++){
-        std::cout << arr[i] << std::endl;
-    }
-    
-    for (unsigned int i = 0; i < len; i++){
-        std::cout << arr2[i] << std::endl;
-    }
 }
