@@ -6,7 +6,7 @@
 /*   By: mdahani <mdahani@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 11:56:25 by mdahani           #+#    #+#             */
-/*   Updated: 2025/11/04 08:46:47 by mdahani          ###   ########.fr       */
+/*   Updated: 2025/11/04 09:42:44 by mdahani          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ class Array {
 
         // * Parametrised constructor
         Array(unsigned int sizeArray): sizeOfArray(sizeArray){
+            // ? T[sizeArray]() means:
+            // ? Dynamically allocate an array of 'sizeArray' elements of type T,
+            // ? and value-initialize each element:
+            // ?   - For built-in types (int, double, etc.), elements are set to 0.
+            // ?   - For class types, the default constructor is called.
+            // ? Without the parentheses (), elements would be left uninitialized (garbage value).
+
             this->arr = new T[sizeArray]();
 
             std::cout << "Parametrised constructor of Array is called" << std::endl;
@@ -77,32 +84,28 @@ class Array {
             std::cout << "Array is destroyed" << std::endl;
         };
 
-        // * Setters & Getters
-        void setValueByIndex(T value, unsigned int idx){
-            if (idx > this->sizeOfArray || idx  < 0){
-                throw std::out_of_range("Index out of range");
-            }
-            
-            this->arr[idx] = value;
-        }
-
-        T getValueByIndex(unsigned int idx){
-            if (idx > this->sizeOfArray || idx  < 0){
-                throw std::out_of_range("Index out of range");
-            }
-            return this->arr[idx];
-        }
-        void *getAddressByIndex(unsigned int idx){
-            if (idx > this->sizeOfArray || idx  < 0){
-                throw std::out_of_range("Index out of range");
-            }
-            return &this->arr[idx];
-        }
-
         // * Methods
         unsigned int size() const{
             return this->sizeOfArray;
         }
+
+        // * Operators
+        T &operator[](unsigned int idx){
+            if (idx > this->sizeOfArray || idx  < 0){
+                throw std::out_of_range("Index out of range");
+            }
+            
+            return this->arr[idx];
+        }
+        
+        const T &operator[](unsigned int idx) const {
+            if (idx > this->sizeOfArray || idx  < 0){
+                throw std::out_of_range("Index out of range");
+            }
+            
+            return this->arr[idx];
+        }
+        
 };
 
 #endif
